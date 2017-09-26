@@ -1,0 +1,129 @@
+﻿<Page
+    x:Class="NetDesign.Views.IEEEPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <Page.Resources>
+        <Style x:Key="MAC_TextBox" TargetType="TextBox" >
+            <Setter Property="FontWeight" Value="Normal"/>
+            <Setter Property="FontSize" Value="24"/>
+            <Setter Property="Margin" Value="0,20,0,20"/>
+            <Setter Property="MaxLength" Value="2"/>
+        </Style>
+        <Style x:Key="All_TextBlock" TargetType="TextBlock">
+            <Setter Property="FontWeight" Value="Normal"/>
+            <Setter Property="FontSize" Value="24"/>
+            <Setter Property="Margin" Value="0,20,0,20"/>
+        </Style>
+    </Page.Resources>
+
+    <Grid x:ConnectionId='1'
+        x:Name="ContentArea"
+        Margin="{StaticResource MediumLeftRightMargin}">
+
+        <Grid.RowDefinitions>
+            <RowDefinition x:ConnectionId='2' x:Name="TitleRow" Height="48"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock x:ConnectionId='3'
+            x:Name="TitlePage"
+            x:Uid="IEEE_Title"
+            Text="Navigation Item 2"
+            Style="{StaticResource PageTitleStyle}" />
+
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Hidden">
+            <Grid  >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <!--MAC��ַ�ı���-->
+                <StackPanel x:ConnectionId='4' Name="SourceMacStackPanel" Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center">
+                    <TextBlock Text="Source MAC:" Style="{StaticResource All_TextBlock}"/>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBox x:ConnectionId='18' Name="Source1_TextBox" Style="{StaticResource MAC_TextBox}" />
+                        <TextBlock Text="-" Style="{StaticResource All_TextBlock}"/>
+                        <TextBox x:ConnectionId='19' Name="Source2_TextBox" Style="{StaticResource MAC_TextBox}"/>
+                        <TextBlock Text="-" Style="{StaticResource All_TextBlock}"/>
+                        <TextBox x:ConnectionId='20' Name="Source3_TextBox" Style="{StaticResource MAC_TextBox}"/>
+                        <TextBlock Text="-" Style="{StaticResource All_TextBlock}"/>
+                        <TextBox x:ConnectionId='21' Name="Source4_TextBox" Style="{StaticResource MAC_TextBox}"/>
+                        <TextBlock Text="-" Style="{StaticResource All_TextBlock}"/>
+                        <TextBox x:ConnectionId='22' Name="Source5_TextBox" Style="{StaticResource MAC_TextBox}"/>
+                        <TextBlock Text="-" Style="{StaticResource All_TextBlock}"/>
+                        <TextBox x:ConnectionId='23' Name="Source6_TextBox" Style="{StaticResource MAC_TextBox}"/>
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel x:ConnectionId='5' Name="TargetMacStackPanel" Grid.Row="2" Orientation="Horizontal" VerticalAlignment="Center">
+                    <TextBlock Text="Destination MAC:" Style="{StaticResource All_TextBlock}"/>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBox x:ConnectionId='12' Name="Target1_TextBox" Style="{StaticResource MAC_TextBox}"/>
+                        <TextBlock Text="-" Style="{StaticResource All_TextBlock}"/>
+                        <TextBox x:ConnectionId='13' Name="Target2_TextBox" Style="{StaticResource MAC_TextBox}"/>
+                        <TextBlock Text="-" Style="{StaticResource All_TextBlock}"/>
+                        <TextBox x:ConnectionId='14' Name="Target3_TextBox" Style="{StaticResource MAC_TextBox}"/>
+                        <TextBlock Text="-" Style="{StaticResource All_TextBlock}"/>
+                        <TextBox x:ConnectionId='15' Name="Target4_TextBox" Style="{StaticResource MAC_TextBox}"/>
+                        <TextBlock Text="-" Style="{StaticResource All_TextBlock}"/>
+                        <TextBox x:ConnectionId='16' Name="Target5_TextBox" Style="{StaticResource MAC_TextBox}"/>
+                        <TextBlock Text="-" Style="{StaticResource All_TextBlock}"/>
+                        <TextBox x:ConnectionId='17' Name="Target6_TextBox" Style="{StaticResource MAC_TextBox}"/>
+                    </StackPanel>
+                </StackPanel>
+                <!--���ݲ����ı��� -->
+                <StackPanel x:ConnectionId='6' Name="DataStackPanel" Grid.Row="3" VerticalAlignment="Center" Orientation="Horizontal">
+                    <TextBlock  Text="Data Part:" Style="{StaticResource All_TextBlock}"/>
+                    <TextBox x:ConnectionId='11' Name="Data_TextBox" Width="auto" Margin="10,20,0,20" FontSize="24"/>
+                </StackPanel>
+                <!--�����ť-->
+                <StackPanel Grid.Row="4" VerticalAlignment="Center" Orientation="Horizontal">
+                    <Button x:ConnectionId='9' Margin="50,0,0,0" Content="OK" FontSize="24"                     />
+                    <Button x:ConnectionId='10' Margin="50,0,0,0" Content="Reset" FontSize="24"                       />
+                </StackPanel>
+                <!--������-->
+                <StackPanel Grid.Row="5" VerticalAlignment="Center" Orientation="Horizontal">
+                    <TextBlock  Text="FCS:" Style="{StaticResource All_TextBlock}" />
+                    <TextBox x:ConnectionId='8' Name="FCS_TextBox" Width="360" Margin="10,20,0,20" FontSize="24"/>
+                </StackPanel>
+                <StackPanel Grid.Row="6" VerticalAlignment="Center" Orientation="Vertical">
+                    <TextBlock  Text="Result:" Style="{StaticResource All_TextBlock}" />
+                    <TextBox x:ConnectionId='7' Name="result"  Height="200"  TextWrapping="Wrap" FontSize="24"  ScrollViewer.VerticalScrollBarVisibility="Auto"/>
+                </StackPanel>
+                <!--The SystemControlPageBackgroundChromeLowBrush background represents where you should place your content. 
+                Place your content here.-->
+            </Grid>
+        </ScrollViewer>
+
+        <!--  Adaptive triggers  -->
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:ConnectionId='24' x:Name="WindowStates">
+                <VisualState x:ConnectionId='25' x:Name="WideState">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="640"/>
+                    </VisualState.StateTriggers>
+                </VisualState>
+                <VisualState x:ConnectionId='26' x:Name="NarrowState">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="0"/>
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="TitlePage.Margin" Value="48,0,12,7"/>
+                        <Setter Target="SourceMacStackPanel.Orientation" Value="Vertical"/>
+                        <Setter Target="TargetMacStackPanel.Orientation" Value="Vertical"/>
+
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+    </Grid>
+</Page>
+
